@@ -3,6 +3,12 @@
 $(document).ready(function($) {
 	"use strict";
 
+	   // Map iframe code
+	   var mapIframe = '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.6257525970077!2d-34.84657779999998!3d-7.053186199999992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7acdde2183a689b%3A0xcf64de1bb8f5c63f!2sRua%20Cl%C3%B3vis%20de%20Holanda%20Calado%2C%20379-253%20-%20Lot.%20Bela%20Vista%2C%20Cabedelo%20-%20PB%2C%2058310-000!5e0!3m2!1ses-419!2sbr!4v1737336576944!5m2!1ses-419!2sbr" width="550" height="430" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+
+	   // Insert the map iframe into the map-holder div
+	   $('.map-holder .map').replaceWith(mapIframe);
+	   
 	/* global google, DevSolutionSkill: false */
 	/*jshint -W018 */
 	
@@ -139,8 +145,8 @@ $(document).ready(function($) {
 	/* ---------------------------------------------------------------------- */
 
 	try {
-		var fenway = [42.345573,-71.098326]; //Change a map coordinate here!
-		var markerPosition = [42.345573,-71.098326]; //Change a map marker here!
+		var fenway = [-7.053150,-34.846917]; //Change a map coordinate here!
+		var markerPosition = [-7.053150,-34.846917]; //Change a map marker here!
 		var markerPosition2 = [42.3342802,-71.1324866]; //Change a map marker here!
 		var markerPosition3 = [42.3388483,-71.0607322]; //Change a map marker here!
 		$('.map')
