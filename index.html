@@ -1,735 +1,983 @@
-  <!doctype html>
+<!doctype html>
 
-  <html lang="en" class="no-js">
-  
-  <head>
-	  <title>Foody</title>
-  
-	  <meta charset="utf-8">
-  
-	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	  <link
-		  href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,400i,500,500i,600,700,800,900|PT+Serif:400,400i,700,700i"
-		  rel="stylesheet">
-  
-	  <link rel="stylesheet" href="css/foody.min.css">
-	  <link rel="stylesheet" type="text/css" href="css/style.css">
-  
-	  <style>
-		  .modal-body {
-			  padding: 20px;
-		  }
-	  
-		  .adicionais-section,
-		  .observacao-section,
-		  .resumo-section {
-			  border-top: 1px solid #eee;
-			  padding-top: 20px;
-		  }
-	  
-		  .resumo-items {
-			  background-color: #f8f9fa;
-			  padding: 15px;
-			  border-radius: 5px;
-		  }
-	  
-		  .form-check {
-			  margin-bottom: 10px;
-		  }
-	  
-		  .modal-header {
-			  background-color: #f8f9fa;
-			  border-bottom: 1px solid #dee2e6;
-			  padding: 1rem;
-			  display: flex;
-			  align-items: center;
-			  justify-content: space-between;
-		  }
-	  
-		  .modal-logo {
-			  height: 40px;
-			  margin-right: 15px;
-		  }
-	  
-		  .modal-title {
-			  margin: 0;
-			  line-height: 1.5;
-			  flex-grow: 1;
-			  text-align: center;
-		  }
-	  
-		  .close {
-			  font-size: 1.5rem;
-			  padding: 0.5rem;
-			  margin: -0.5rem -0.5rem -0.5rem auto;
-		  }
-  
-		  /* Ensure the modal is above the navigation */
-		  .modal {
-			  z-index: 10050; /* Or a higher value if needed */
-		  }
-		  /* Hide the navigation when the modal is open */
-		  body.modal-open-custom header {
-			  display: none !important;
-		  }
-		  .modal-body .row > div:first-child {
-			  display: flex;
-			  justify-content: center;
-		  }
-		  .modal-body .row > div:first-child img {
-			  max-width: 100%;
-			  max-height: 300px;
-			  object-fit: contain;
-		  }
-		  .menu-price-order {
-		  margin-top: 3%;
-	  }
-	      /* Custom CSS for logo spacing */
-		  .reduced-logo-spacing {
-    padding-right: 0.9rem !important;
-    padding-left: 0.9rem !important; /* Adicionado para reduzir o espaço da esquerda */
-}
-.navbar {
-        padding: 0 !important; /* Remove padding da navbar */
-        justify-content: center; /* Centraliza o conteúdo da navbar */
-    }
-    .navbar-nav {
-        margin: 0 !important; /* Remove margens da lista de navegação */
-    }
-    .nav-item {
-        padding: 0 !important; /* Remove padding dos itens de menu */
-    }
-    .nav-link {
-        padding: 0 !important; /* Remove padding dos links */
-        display: inline-block; /* Faz o link ocupar apenas o tamanho do texto */
-    }
-    .navbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 1rem !important; /* Add some horizontal padding */
-    }
-	.navbar-text {
-		font-family: 'Montserrat' , sans-serif !important;  /* Use the same font as the menu */
-        color: white !important;
-        font-size: 2rem; /* Adjust the font size as needed */
-		font-weight: bold;
-        margin: -20px; /* Remove default margin */
-        flex-grow: 1; /* Allow text to grow and center */
-        text-align: center; /* Center the text */
-    }
-	  </style>
-  
-  </head>
-  
-  <body>
-  
-	  <!-- Container -->
-	  <div id="container">
-		  <!-- Header
+<html lang="en" class="no-js">
+
+<head>
+	<title>IDEBurguer</title>
+
+	<meta charset="utf-8">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link
+		href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,400i,500,500i,600,700,800,900|PT+Serif:400,400i,700,700i"
+		rel="stylesheet">
+
+	<link rel="stylesheet" href="css/foody.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<style>
+		.modal-body {
+			padding: 20px;
+		}
+
+		.adicionais-section,
+		.observacao-section,
+		.resumo-section {
+			border-top: 1px solid #eee;
+			padding-top: 20px;
+		}
+
+		.resumo-items {
+			background-color: #f8f9fa;
+			padding: 15px;
+			border-radius: 5px;
+		}
+
+		.form-check {
+			margin-bottom: 10px;
+		}
+
+		.modal-header {
+			background-color: #f8f9fa;
+			border-bottom: 1px solid #dee2e6;
+			padding: 1rem;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.modal-logo {
+			height: 40px;
+			margin-right: 15px;
+		}
+
+		.modal-title {
+			margin: 0;
+			line-height: 1.5;
+			flex-grow: 1;
+			text-align: center;
+		}
+
+		.close {
+			font-size: 1.5rem;
+			padding: 0.5rem;
+			margin: -0.5rem -0.5rem -0.5rem auto;
+		}
+
+		/* Ensure the modal is above the navigation */
+		.modal {
+			z-index: 10050;
+			/* Or a higher value if needed */
+		}
+
+		/* Hide the navigation when the modal is open */
+		body.modal-open-custom header {
+			display: none !important;
+		}
+
+		.modal-body .row>div:first-child {
+			display: flex;
+			justify-content: center;
+		}
+
+		.modal-body .row>div:first-child img {
+			max-width: 100%;
+			max-height: 300px;
+			object-fit: contain;
+		}
+
+		.menu-price-order {
+			margin-top: 3%;
+		}
+
+		/* Custom CSS for logo spacing */
+		.reduced-logo-spacing {
+			padding-right: 0.9rem !important;
+			padding-left: 0.9rem !important;
+			/* Adicionado para reduzir o espaço da esquerda */
+		}
+
+		.navbar {
+			padding: 0 !important;
+			/* Remove padding da navbar */
+			justify-content: center;
+			/* Centraliza o conteúdo da navbar */
+		}
+
+		.navbar-nav {
+			margin: 0 !important;
+			/* Remove margens da lista de navegação */
+		}
+
+		.nav-item {
+			padding: 0 !important;
+			/* Remove padding dos itens de menu */
+		}
+
+		.nav-link {
+			padding: 0 !important;
+			/* Remove padding dos links */
+			display: inline-block;
+			/* Faz o link ocupar apenas o tamanho do texto */
+		}
+
+		.navbar {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0 1rem !important;
+			/* Add some horizontal padding */
+		}
+
+		.navbar-text {
+			font-family: 'Montserrat', sans-serif !important;
+			/* Use the same font as the menu */
+			color: white !important;
+			font-size: 2rem;
+			/* Adjust the font size as needed */
+			font-weight: bold;
+			margin: -20px;
+			/* Remove default margin */
+			flex-grow: 1;
+			/* Allow text to grow and center */
+			text-align: center;
+			/* Center the text */
+			transform: translateX(-8%);
+		}
+
+		@media (max-width:1080px) {
+			.navbar {
+				position: relative;
+			}
+
+			.shopping-cart {
+				display: block !important;
+				position: absolute;
+				top: 50%;
+				right: 15px;
+				transform: translateY(22%);
+				z-index: 1000;
+				visibility: visible;
+				opacity: 1;
+			}
+
+			.shopping-cart i {
+				font-size: 24px;
+				color: white;
+			}
+
+			.shopping-cart span {
+				position: absolute;
+				top: -8px;
+				right: -8px;
+				background: #FF8C00;
+				color: white;
+			}
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<!-- Container -->
+	<div id="container">
+		<!-- Header
 			  ================================================== -->
-			  <header>
-				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-					<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt=""></a>
-					<span class="navbar-text">CARDÁPIO</span>
-					<a href="#" class="shopping-cart"><i class="fa fa-shopping-bag"></i><span>2</span></a>
-				</nav>
-			</header>
-			<!-- End Header -->
-  
-		  <!-- page-banner-section 
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt=""></a>
+				<span class="navbar-text">CARDÁPIO</span>
+				<a href="shopping-cart.html" class="shopping-cart"><i class="fa fa-shopping-bag"></i><span>1</span></a>
+			</nav>
+		</header>
+		<!-- End Header -->
+
+		<!-- page-banner-section 
 			  ================================================== -->
-		  <section class="page-banner-section menu">
-			  <div class="container">
+		<section class="page-banner-section menu">
+			<div class="container">
 				<!--  <p>You are here: <a href="index.html">Home</a> / <a href="menu.html">Menu</a></p> -->
-			  </div>
-		  </section>
-		  <!-- End page-banner section -->
-  
-		  <!-- small-menu-section 
+			</div>
+		</section>
+		<!-- End page-banner section -->
+
+		<!-- menu-section 
 			  ================================================== -->
-		  <section class="small-menu-section">
-			  <div class="container">
-  
-				  <!-- Linha Artesanal -->
-				  <div class="menu-box">
-					  <h1 class="menu-title">~ LINHA ARTESANAL 150G ~</h1>
-					  <div class="row">
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/nazare.jpg" alt="Nazaré"></div>
-									  <div class="post-content">
-										  <h2><a href="#">NAZARÉ</a></h2>
-										  <p>Pão brioche, blend de 150g, cheddar, cebola caramelizada, picles e molho.</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">R$ 26,00</span>
-									  <a href="#" class="order">Pedir</a>
-  
-								  </div>
-							  </div>
-						  </div>
-  
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/jerusalem.jpg" alt="Jerusalém">
-									  </div>
-									  <div class="post-content">
-										  <h2><a href="#">JERUSALÉM</a></h2>
-										  <p>Pão brioche, blend de 150g, mussarela, azeitona, geléia de abacaxi com
-											  pimenta e molho.</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">R$ 26,00</span>
-									  <a href="#" class="order">Pedir</a>
-  
-								  </div>
-							  </div>
-						  </div>
-  
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/israel.jpg" alt="Israel"></div>
-									  <div class="post-content">
-										  <h2><a href="#">ISRAEL</a></h2>
-										  <p>Pão australiano, blend de 150g, creme de cheddar, Onion rings, farofa de
-											  bacon e molho.</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">R$ 30,00</span>
-									  <a href="#" class="order">Pedir</a>
-  
-								  </div>
-							  </div>
-						  </div>
-					  </div>
-  
-					  <div class="row">
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/emaus.jpg" alt="Emaús"></div>
-									  <div class="post-content">
-										  <h2><a href="#">EMAÚS</a></h2>
-										  <p>Pão brioche, blend de 150g, cream cheese, bacon duplo e molho.</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">R$ 28,00</span>
-									  <a href="#" class="order">Pedir</a>
-  
-								  </div>
-							  </div>
-						  </div>
-  
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/jerico.jpg" alt="Jericó"></div>
-									  <div class="post-content">
-										  <h2><a href="#">JERICÓ</a></h2>
-										  <p>Pão brioche, blend de 150g, cheddar, picles, bacon caramelizado, cebola
-											  crispy e molho.</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">R$ 27,00</span>
-									  <a href="#" class="order">Pedir</a>
-  
-								  </div>
-							  </div>
-						  </div>
-  
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/samaria.jpg" alt="Samaria"></div>
-									  <div class="post-content">
-										  <h2><a href="#">SAMARIA</a></h2>
-										  <p>Pão brioche, 2 blends de 150g, cheddar duplo, bacon duplo e molho.</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">R$ 39,00</span>
-									  <a href="#" class="order">Pedir</a>
-  
-								  </div>
-							  </div>
-						  </div>
-					  </div>
-  
-					  <div class="row">
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/mana.jpg" alt="Maná"></div>
-									  <div class="post-content">
-										  <h2><a href="#">MANÁ</a></h2>
-										  <p>Pão australiano, blend de 150g, creme de cheddar, bacon caramelizado, cebola
-											  crispy e molho.</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">R$ 30,00</span>
-									  <a href="#" class="order">Pedir</a>
-  
-								  </div>
-							  </div>
-						  </div>
-  
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/costeladeadao.jpg"
-											  alt="Costela de Adão"></div>
-									  <div class="post-content">
-										  <h2><a href="#">COSTELA DE ADÃO</a></h2>
-										  <p>Pão brioche, 120g de costela defumada, bacon, barbecue, tomate salteado e
-											  molho.</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">R$ 32,00</span>
-									  <a href="#" class="order">Pedir</a>
-  
-								  </div>
-							  </div>
-						  </div>
-  
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/betel.jpg" alt="Betel"></div>
-									  <div class="post-content">
-										  <h2><a href="#">BETEL</a></h2>
-										  <p>Pão brioche, blend de 150g, mussarela, cebola roxa na chapa, bacon
-											  cararamelizado e molho.</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">R$ 28,00</span>
-									  <a href="#" class="order">Pedir</a>
-  
-								  </div>
-							  </div>
-						  </div>
-					  </div>
-				  </div>
-  
-  
-  
-				  <!-- Linha Smash-->
-				  <div class="menu-box">
-					  <h1 class="menu-title">~ LINHA SMASH SIMPLES, ARTESANAL 90G ~</h1>
-					  <div class="row">
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/1.jpg" alt=""></div>
-									  <div class="post-content">
-										  <h2><a href="#">chicken burger</a></h2>
-										  <p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom
-											  on a garlic crème fraiche base, topped with fresh sliced spring</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">$15.99</span>
-									  <a href="#" class="order">Order</a>
-									  <a href="#" class="details">Details</a>
-								  </div>
-							  </div>
-						  </div>
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/2.jpg" alt=""></div>
-									  <div class="post-content">
-										  <h2><a href="#">Beef Burger</a></h2>
-										  <p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom
-											  on a garlic crème fraiche base, topped with fresh sliced spring</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">$11.99</span>
-									  <a href="#" class="order">Order</a>
-									  <a href="#" class="details">Details</a>
-								  </div>
-							  </div>
-						  </div>
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/3.jpg" alt=""></div>
-									  <div class="post-content">
-										  <h2><a href="#">Double Burger</a></h2>
-										  <p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom
-											  on a garlic crème fraiche base, topped with fresh sliced spring</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">$21.99</span>
-									  <a href="#" class="order">Order</a>
-									  <a href="#" class="details">Details</a>
-								  </div>
-							  </div>
-						  </div>
-					  </div>
-				  </div>
-  
-				  <!-- Batata Frita -->
-				  <div class="menu-box">
-					  <h1 class="menu-title">~ BATATA FRITA ~</h1>
-					  <div class="row">
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/1.jpg" alt=""></div>
-									  <div class="post-content">
-										  <h2><a href="#">chicken burger</a></h2>
-										  <p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom
-											  on a garlic crème fraiche base, topped with fresh sliced spring</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">$15.99</span>
-									  <a href="#" class="order">Order</a>
-									  <a href="#" class="details">Details</a>
-								  </div>
-							  </div>
-						  </div>
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/2.jpg" alt=""></div>
-									  <div class="post-content">
-										  <h2><a href="#">Beef Burger</a></h2>
-										  <p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom
-											  on a garlic crème fraiche base, topped with fresh sliced spring</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">$11.99</span>
-									  <a href="#" class="order">Order</a>
-									  <a href="#" class="details">Details</a>
-								  </div>
-							  </div>
-						  </div>
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/3.jpg" alt=""></div>
-									  <div class="post-content">
-										  <h2><a href="#">Double Burger</a></h2>
-										  <p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom
-											  on a garlic crème fraiche base, topped with fresh sliced spring</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">$21.99</span>
-									  <a href="#" class="order">Order</a>
-									  <a href="#" class="details">Details</a>
-								  </div>
-							  </div>
-						  </div>
-					  </div>
-				  </div>
-  
-				  <!-- Linha Kids -->
-				  <div class="menu-box">
-					  <h1 class="menu-title">~ LINHA KIDS 90G ~</h1>
-					  <div class="row">
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/1.jpg" alt=""></div>
-									  <div class="post-content">
-										  <h2><a href="#">chicken burger</a></h2>
-										  <p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom
-											  on a garlic crème fraiche base, topped with fresh sliced spring</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">$15.99</span>
-									  <a href="#" class="order">Order</a>
-									  <a href="#" class="details">Details</a>
-								  </div>
-							  </div>
-						  </div>
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/2.jpg" alt=""></div>
-									  <div class="post-content">
-										  <h2><a href="#">Beef Burger</a></h2>
-										  <p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom
-											  on a garlic crème fraiche base, topped with fresh sliced spring</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">$11.99</span>
-									  <a href="#" class="order">Order</a>
-									  <a href="#" class="details">Details</a>
-								  </div>
-							  </div>
-						  </div>
-						  <div class="col-lg-4 col-md-6 mb-4">
-							  <div class="card h-100">
-								  <img class="card-img-top" src="upload/menu/3.jpg" alt="Double Burger">
-								  <div class="card-body">
-									  <h4 class="card-title">Double Burger</h4>
-									  <p class="card-text">Seasoned chicken, parmesan, maple cured rasher chicken, red
-										  onion, mushroom on a garlic crème fraiche base, topped with fresh sliced spring
-									  </p>
-									  <div class="d-flex justify-content-between align-items-center">
-										  <span class="price h5">$21.99</span>
-										  <div class="btn-group">
-											  <a href="#" class="btn btn-primary">Order</a>
-											  <a href="#" class="btn btn-outline-secondary">Details</a>
-										  </div>
-									  </div>
-								  </div>
-							  </div>
-						  </div>
-					  </div>
-				  </div>
-  
-				  <!-- Cachorro Quente -->
-				  <div class="menu-box">
-					  <h1 class="menu-title">~ CACHORRO QUENTE ~</h1>
-					  <div class="row">
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/1.jpg" alt=""></div>
-									  <div class="post-content">
-										  <h2><a href="#">chicken burger</a></h2>
-										  <p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom
-											  on a garlic crème fraiche base, topped with fresh sliced spring</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">$15.99</span>
-									  <a href="#" class="order">Order</a>
-									  <a href="#" class="details">Details</a>
-								  </div>
-							  </div>
-						  </div>
-					  </div>
-				  </div>
-  
-				  <!-- Adicionais -->
-				  <div class="menu-box">
-					  <h1 class="menu-title">~ ADICIONAIS ~</h1>
-					  <div class="row">
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/1.jpg" alt=""></div>
-									  <div class="post-content">
-										  <h2><a href="#">chicken burger</a></h2>
-										  <p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom
-											  on a garlic crème fraiche base, topped with fresh sliced spring</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">$15.99</span>
-									  <a href="#" class="order">Order</a>
-									  <a href="#" class="details">Details</a>
-								  </div>
-							  </div>
-						  </div>
-					  </div>
-				  </div>
-				  <div class="menu-box">
-					  <h1 class="menu-title">~ BEBIDAS ~</h1>
-					  <div class="row">
-						  <div class="col-lg-4 col-md-6">
-							  <div class="menu-post">
-								  <div class="menu-content">
-									  <div class="image-holder"><img src="upload/menu/1.jpg" alt=""></div>
-									  <div class="post-content">
-										  <h2><a href="#">chicken burger</a></h2>
-										  <p>Seasoned chicken, parmesan, maple cured rasher chicken, red onion, mushroom
-											  on a garlic crème fraiche base, topped with fresh sliced spring</p>
-									  </div>
-								  </div>
-								  <div class="menu-price-order">
-									  <span class="price">$15.99</span>
-									  <a href="#" class="order">Order</a>
-									  <a href="#" class="details">Details</a>
-								  </div>
-							  </div>
-						  </div>
-					  </div>
-				  </div>
-				  <!-- End small-menu section -->
-  
-				  <!-- Modal do Produto -->
-				  <div class="modal fade" id="burgerModal" tabindex="-1" role="dialog" aria-labelledby="burgerModalLabel">
-					  <div class="modal-dialog modal-lg" role="document">
-						  <div class="modal-content">
-							  <!-- Modal Header -->
-							  <div class="modal-header">
-								  <div class="d-flex align-items-center w-100">
-									  <h4 class="modal-title" id="burgerModalLabel">Confirme o Item</h4>
-									  <button type="button" class="close ml-auto" data-dismiss="modal" aria-label="Fechar">
-										  <span aria-hidden="true">&times;</span>
-									  </button>
-								  </div>
-							  </div>
-  
-							  <!-- Modal Body -->
-							  <div class="modal-body">
-								  <!-- Detalhes do Hambúrguer -->
-								  <div class="row">
-									  <div class="col-md-6">
-										  <img src="upload/menu/nazare.jpg" class="img-fluid" alt="Nazaré">
-									  </div>
-									  <div class="col-md-6">
-										  <h5>Descrição</h5>
-										  <p>Pão brioche, blend de 150g, cheddar, cebola caramelizada, picles e molho.</p>
-										  <h5>Preço Base</h5>
-										  <p class="price">R$ 26,00</p>
-									  </div>
-								  </div>
-  
-								  <!-- Seção de Adicionais -->
-								  <div class="adicionais-section mt-4">
-									  <h5>Adicionais</h5>
-									  <div class="form-check">
-										  <input type="checkbox" class="form-check-input adicional-item" data-price="3.00">
-										  <label class="form-check-label">Molho Extra (+R$ 3,00)</label>
-									  </div>
-									  <div class="form-check">
-										  <input type="checkbox" class="form-check-input adicional-item" data-price="10.00">
-										  <label class="form-check-label">Hamburguer Blend 150G (+R$ 10,00)</label>
-									  </div>
-									  <div class="form-check">
-										  <input type="checkbox" class="form-check-input adicional-item" data-price="7.00">
-										  <label class="form-check-label">Hamburguer Smash 90G (+R$ 7,00)</label>
-									  </div>
-									  <div class="form-check">
-										  <input type="checkbox" class="form-check-input adicional-item" data-price="6.00">
-										  <label class="form-check-label">Bacon (+R$ 6,00)</label>
-									  </div>
-									  <div class="form-check">
-										  <input type="checkbox" class="form-check-input adicional-item" data-price="6.00">
-										  <label class="form-check-label">Frango (+R$ 6,00)</label>
-									  </div>
-									  <div class="form-check">
-										  <input type="checkbox" class="form-check-input adicional-item" data-price="6.00">
-										  <label class="form-check-label">Ovo (+R$ 6,00)</label>
-									  </div>
-									  <div class="form-check">
-										  <input type="checkbox" class="form-check-input adicional-item" data-price="5.00">
-										  <label class="form-check-label">Picles (+R$ 5,00)</label>
-									  </div>
-									  <div class="form-check">
-										  <input type="checkbox" class="form-check-input adicional-item" data-price="5.00">
-										  <label class="form-check-label">Geleia De Pimenta (+R$ 5,00)</label>
-									  </div>
-									  <div class="form-check">
-										  <input type="checkbox" class="form-check-input adicional-item" data-price="5.00">
-										  <label class="form-check-label">Onion Rings Ou Cebola Crispy (+R$ 5,00)</label>
-									  </div>
-								  </div>
-								  <!-- Fim da Seção de Adicionais -->
-  
-								  <!-- Campo de Observação -->
-								  <div class="observacao-section mt-4">
-									  <h5>Observações</h5>
-									  <textarea class="form-control" rows="3"
-										  placeholder="Alguma observação sobre seu pedido?"></textarea>
-								  </div>
-  
-								  <!-- Resumo do Pedido -->
-								  <div class="resumo-section mt-4">
-									  <h5>Resumo do Pedido</h5>
-									  <div class="resumo-items">
-										  <div class="d-flex justify-content-between">
-											  <span>Hambúrguer Base:</span>
-											  <span>R$ 26,00</span>
-										  </div>
-										  <div class="d-flex justify-content-between">
-											  <span>Adicionais:</span>
-											  <span id="adicionais-total">R$ 0,00</span>
-										  </div>
-										  <div class="d-flex justify-content-between font-weight-bold">
-											  <span>Total:</span>
-											  <span id="total-price">R$ 26,00</span>
-										  </div>
-									  </div>
-								  </div>
-							  </div>
-							  <div class="modal-footer">
-								  <button type="button" class="btn btn-primary btn-lg btn-block">Adicionar ao
-									  Carrinho</button>
-							  </div>
-						  </div>
-					  </div>
-				  </div>
-  
-				  <!-- footer 
+		<section class="small-menu-section">
+			<div class="container">
+
+				<!-- Linha Artesanal -->
+				<div class="menu-box">
+					<h1 class="menu-title">~ LINHA ARTESANAL 150G ~</h1>
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/nazare.jpg" alt="Nazaré"></div>
+									<div class="post-content">
+										<h2><a href="#">NAZARÉ</a></h2>
+										<p>Pão brioche, blend de 150g, cheddar, cebola caramelizada, picles e molho.</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 26,00</span>
+									<a href="#" class="order">Pedir</a>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/jerusalem.jpg" alt="Jerusalém">
+									</div>
+									<div class="post-content">
+										<h2><a href="#">JERUSALÉM</a></h2>
+										<p>Pão brioche, blend de 150g, mussarela, azeitona, geléia de abacaxi com
+											pimenta e molho.</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 26,00</span>
+									<a href="#" class="order">Pedir</a>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/israel.jpg" alt="Israel"></div>
+									<div class="post-content">
+										<h2><a href="#">ISRAEL</a></h2>
+										<p>Pão australiano, blend de 150g, creme de cheddar, Onion rings, farofa de
+											bacon e molho.</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 30,00</span>
+									<a href="#" class="order">Pedir</a>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/emaus.jpg" alt="Emaús"></div>
+									<div class="post-content">
+										<h2><a href="#">EMAÚS</a></h2>
+										<p>Pão brioche, blend de 150g, cream cheese, bacon duplo e molho.</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 28,00</span>
+									<a href="#" class="order">Pedir</a>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/jerico.jpg" alt="Jericó"></div>
+									<div class="post-content">
+										<h2><a href="#">JERICÓ</a></h2>
+										<p>Pão brioche, blend de 150g, cheddar, picles, bacon caramelizado, cebola
+											crispy e molho.</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 27,00</span>
+									<a href="#" class="order">Pedir</a>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/samaria.jpg" alt="Samaria"></div>
+									<div class="post-content">
+										<h2><a href="#">SAMARIA</a></h2>
+										<p>Pão brioche, 2 blends de 150g, cheddar duplo, bacon duplo e molho.</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 39,00</span>
+									<a href="#" class="order">Pedir</a>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/mana.jpg" alt="Maná"></div>
+									<div class="post-content">
+										<h2><a href="#">MANÁ</a></h2>
+										<p>Pão australiano, blend de 150g, creme de cheddar, bacon caramelizado, cebola
+											crispy e molho.</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 30,00</span>
+									<a href="#" class="order">Pedir</a>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/costeladeadao.jpg"
+											alt="Costela de Adão"></div>
+									<div class="post-content">
+										<h2><a href="#">COSTELA DE ADÃO</a></h2>
+										<p>Pão brioche, 120g de costela defumada, bacon, barbecue, tomate salteado e
+											molho.</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 32,00</span>
+									<a href="#" class="order">Pedir</a>
+
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/betel.jpg" alt="Betel"></div>
+									<div class="post-content">
+										<h2><a href="#">BETEL</a></h2>
+										<p>Pão brioche, blend de 150g, mussarela, cebola roxa na chapa, bacon
+											cararamelizado e molho.</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 28,00</span>
+									<a href="#" class="order">Pedir</a>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Linha Smash-->
+				<div class="menu-box">
+					<h1 class="menu-title">~ LINHA SMASH SIMPLES, ARTESANAL 90G ~</h1>
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/ideburger.jpg" alt="IDE BURGUER">
+									</div>
+									<div class="post-content">
+										<h2><a href="#">IDE BURGUER</a></h2>
+										<p>Pão brioche, smash 90g, cheddar, salada e molho</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 16,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/idesalada.jpg" alt="IDE SALADA">
+									</div>
+									<div class="post-content">
+										<h2><a href="#">IDE SALADA</a></h2>
+										<p>Pão brioche, smash 90g, mussarela, salada e molho</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 14,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/idefrango.jpg" alt="IDE FRANGO">
+									</div>
+									<div class="post-content">
+										<h2><a href="#">IDE FRANGO</a></h2>
+										<p>Pão brioche, frango, bancon, mussarela, salada e molho</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 16,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/idebacon.jpg" alt="IDE BACON"></div>
+									<div class="post-content">
+										<h2><a href="#">IDE BACON</a></h2>
+										<p>Pão brioche, smash 90g, mussarela, bacon, salada e molho</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 16,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/ideovo.jpg" alt="IDE OVO"></div>
+									<div class="post-content">
+										<h2><a href="#">IDE OVO</a></h2>
+										<p>Pão brioche, smash 90g, mussarela, ovo, salada e molho</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 15,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/idemuitafe.jpg" alt="IDE MUITA FÉ">
+									</div>
+									<div class="post-content">
+										<h2><a href="#">IDE MUITA FÉ</a></h2>
+										<p>Pão brioche, duplo smash 90g, frango, bacon, calabresa, mussarela, ovo,
+											salada e molho</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 26,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Batata Frita -->
+				<div class="menu-box">
+					<h1 class="menu-title">~ BATATA FRITA ~</h1>
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/batatapequenap(150g).jpg"
+											alt="BATATA PEQUENA P"></div>
+									<div class="post-content">
+										<h2><a href="#">BATATA PEQUENA P (150g)</a></h2>
+										<p></p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 9,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/batatagrandeg(350g).jpg"
+											alt="BATATA GRANDE G"></div>
+									<div class="post-content">
+										<h2><a href="#">BATATA GRANDE G (350g)</a></h2>
+										<p></p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 15,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/batarecheada(350g).jpg"
+											alt="BATATA RECHEADA"></div>
+									<div class="post-content">
+										<h2><a href="#">BATATA RECHEADA (350g)</a></h2>
+										<p>creme de cheddar e bacon</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 26,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- Linha Kids -->
+				<div class="menu-box">
+					<h1 class="menu-title">~ LINHA KIDS 90G ~</h1>
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/davi.jpg" alt="DAVI"></div>
+									<div class="post-content">
+										<h2><a href="#">DAVI</a></h2>
+										<p>Pão brioche, smash 90g e molho</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 12,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/jonas.jpg" alt="JONAS"></div>
+									<div class="post-content">
+										<h2><a href="#">JONAS</a></h2>
+										<p>Pão brioche, smash 90g, mussarela e molho</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 16,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/sansao.jpg" alt="SANSÃO"></div>
+									<div class="post-content">
+										<h2><a href="#">SANSÃO</a></h2>
+										<p>Pão brioche, smash 90g, cheddar e salada</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 16,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/samuel.jpg" alt="SAMUEL"></div>
+									<div class="post-content">
+										<h2><a href="#">SAMUEL</a></h2>
+										<p>Pão brioche, frango, mussarela e molho</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 15,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- Cachorro Quente -->
+				<div class="menu-box">
+					<h1 class="menu-title">~ CACHORRO QUENTE ~</h1>
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/dognachapa.jpg" alt="DOG NA CHAPA">
+									</div>
+									<div class="post-content">
+										<h2><a href="#">DOG NA CHAPA</a></h2>
+										<p>Pão hot dog, salsicha, mussarela, milho e batata</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 12,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/dogdefrango.jpg"
+											alt="DOG DE FRANGO"></div>
+									<div class="post-content">
+										<h2><a href="#">DOG DE FRANGO</a></h2>
+										<p>Pão de hot dog, frango, mussarela, milho e batata palha</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 15,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/dogdestrogonoff.jpg"
+											alt="DOG DE STROGONOFF"></div>
+									<div class="post-content">
+										<h2><a href="#">DOG DE STROGONOFF</a></h2>
+										<p>Pão de hot dog, strogonoff de frango, mussarela e batata palha</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 18,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/dognomolho.jpg" alt="DOG NO MOLHO">
+									</div>
+									<div class="post-content">
+										<h2><a href="#">DOG NO MOLHO</a></h2>
+										<p>Pão de hot dog, salsicha no molho, milho, mussarela e batata palha</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 12,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Bebidas -->
+				<div class="menu-box">
+					<h1 class="menu-title">~ BEBIDAS ~</h1>
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/sucos(300ml).jpg" alt="SUCOS"></div>
+									<div class="post-content">
+										<h2><a href="#">SUCOS (300ML)</a></h2>
+										<p>Sucos naturais de 300ml.</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 8,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/cocacola.jpg" alt="COCA COLA"></div>
+									<div class="post-content">
+										<h2><a href="#">COCA COLA</a></h2>
+										<p>Refrigerante Coca Cola 350ml.</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 8,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/cocacolazero.jpg"
+											alt="COCA COLA ZERO"></div>
+									<div class="post-content">
+										<h2><a href="#">COCA COLA ZERO</a></h2>
+										<p>Refrigerante Coca Cola Zero.</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 8,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/guaranantartica.jpg"
+											alt="GUARANÁ ANTÁRTICA"></div>
+									<div class="post-content">
+										<h2><a href="#">GUARANÁ ANTÁRTICA</a></h2>
+										<p>Refrigerante Guaraná Antártica.</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 8,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/aguamineral(500ml).jpg"
+											alt="ÁGUA MINERAL"></div>
+									<div class="post-content">
+										<h2><a href="#">ÁGUA MINERAL (500ML)</a></h2>
+										<p>Água mineral de 500ml.</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 4,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/aguacomgas(500ml).jpg"
+											alt="ÁGUA COM GÁS"></div>
+									<div class="post-content">
+										<h2><a href="#">ÁGUA COM GÁS (500ML)</a></h2>
+										<p>Água com gás de 500ml.</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 5,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="menu-post">
+								<div class="menu-content">
+									<div class="image-holder"><img src="upload/menu/refrigerante1l.jpg"
+											alt="REFRIGERANTE 1 LITRO"></div>
+									<div class="post-content">
+										<h2><a href="#">REFRIGERANTE 1 LITRO</a></h2>
+										<p>Refrigerante de 1 litro.</p>
+									</div>
+								</div>
+								<div class="menu-price-order">
+									<span class="price">R$ 15,00</span>
+									<a href="#" class="order">Pedir</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- End menu section -->
+
+				<!-- Modal do Produto -->
+				<div class="modal fade" id="burgerModal" tabindex="-1" role="dialog" aria-labelledby="burgerModalLabel">
+					<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-content">
+							<!-- Modal Header -->
+							<div class="modal-header">
+								<div class="d-flex align-items-center w-100">
+									<h4 class="modal-title" id="burgerModalLabel">Confirme o Item</h4>
+									<button type="button" class="close ml-auto" data-dismiss="modal"
+										aria-label="Fechar">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+							</div>
+
+							<!-- Modal Body -->
+							<div class="modal-body">
+								<!-- Detalhes do Hambúrguer -->
+								<div class="row">
+									<div class="col-md-6">
+										<img src="upload/menu/nazare.jpg" class="img-fluid" alt="Nazaré">
+									</div>
+									<div class="col-md-6">
+										<!-- Título acima da descrição-->
+										<h5> </h5>
+										<!-- Descrição do Hambúrguer -->
+										<p> </p>
+										<h5>Preço Base</h5>
+										<!-- Preço Base -->
+										<p class="price"> </p>
+									</div>
+								</div>
+
+								<!-- Seção de Adicionais -->
+								<div class="adicionais-section mt-4">
+									<h5>Adicionais</h5>
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input adicional-item"
+											data-price="3.00">
+										<label class="form-check-label">Molho Extra (+R$ 3,00)</label>
+									</div>
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input adicional-item"
+											data-price="10.00">
+										<label class="form-check-label">Hamburguer Blend 150G (+R$ 10,00)</label>
+									</div>
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input adicional-item"
+											data-price="7.00">
+										<label class="form-check-label">Hamburguer Smash 90G (+R$ 7,00)</label>
+									</div>
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input adicional-item"
+											data-price="6.00">
+										<label class="form-check-label">Bacon (+R$ 6,00)</label>
+									</div>
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input adicional-item"
+											data-price="6.00">
+										<label class="form-check-label">Frango (+R$ 6,00)</label>
+									</div>
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input adicional-item"
+											data-price="6.00">
+										<label class="form-check-label">Ovo (+R$ 6,00)</label>
+									</div>
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input adicional-item"
+											data-price="5.00">
+										<label class="form-check-label">Picles (+R$ 5,00)</label>
+									</div>
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input adicional-item"
+											data-price="5.00">
+										<label class="form-check-label">Geleia De Pimenta (+R$ 5,00)</label>
+									</div>
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input adicional-item"
+											data-price="5.00">
+										<label class="form-check-label">Onion Rings Ou Cebola Crispy (+R$ 5,00)</label>
+									</div>
+								</div>
+								<!-- Fim da Seção de Adicionais -->
+
+								<!-- Campo de Observação -->
+								<div class="observacao-section mt-4">
+									<h5>Observações</h5>
+									<textarea class="form-control" rows="3"
+										placeholder="Alguma observação sobre seu pedido?"></textarea>
+								</div>
+
+								<!-- Resumo do Pedido -->
+								<div class="resumo-section mt-4">
+									<h5>Resumo do Pedido</h5>
+									<div class="resumo-items">
+										<div class="d-flex justify-content-between">
+											<span>Hambúrguer Base:</span>
+											<span>R$ 26,00</span>
+										</div>
+										<div class="d-flex justify-content-between">
+											<span>Adicionais:</span>
+											<span id="adicionais-total">R$ 0,00</span>
+										</div>
+										<div class="d-flex justify-content-between font-weight-bold">
+											<span>Total:</span>
+											<span id="total-price">R$ 26,00</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary btn-lg btn-block">Adicionar ao
+									Carrinho</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- footer 
 			  ================================================== -->
-				  <footer>
-					  <div class="upper-footer">
-						  <div class="container">
-							  <div class="row">
-								  <div class="col-lg-3">
-									  <!-- Bloco 1 Funcionamento -->
-									  <div class="widgets-area">
-  
-										  <!-- funcionamento -->
-										  <div class="footer-widget text-widget">
-											  <h2>Funcionamento</h2>
-											  <ul class="working-list">
-												  <li>
-													  <span>Quarta - Sexta</span> <span class="right-align">18:00 -
-														  22:00h</span>
-												  </li>
-												  <li>
-													  <span>Sábado</span> <span class="right-align">18:00 - 23:00h</span>
-												  </li>
-												  <li>
-													  <span>Domingo</span> <span class="right-align">18:00 - 22:30h</span>
-												  </li>
-											  </ul>
-										  </div>
-  
-										  <!-- Endereço e Telefone -->
-										  <div class="footer-widget text-widget">
-											  <h2>Nosso Endereço</h2>
-											  <p>IDE Burguer <br>Rua Clóvis de Holanda Calado 379 <br> Bela Vista,
-												  Cabedelo - PB <br> 58310-000</p>
-  
-											  <p>Tel.: 0 800 111 555 666 </p>
-										  </div>
-  
-									  </div>
-								  </div>
-  
-								  <!-- Bloco 2: Mapa -->
-								  <div class="col-lg-6">
-									  <div class="map-holder">
-										  <div class="map"></div>
-										  <div class="order-btn-box">
-											  <a class="button-one" href="#">make your order now!</a>
-										  </div>
-									  </div>
-								  </div>
-  
-								  <!-- Bloco 3 -->
-								  <div class="col-lg-3">
-									  <div class="widgets-area">
-  
-										  <!-- SubInscrição
+				<footer>
+					<div class="upper-footer">
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-3">
+									<!-- Bloco 1 Funcionamento -->
+									<div class="widgets-area">
+
+										<!-- funcionamento -->
+										<div class="footer-widget text-widget">
+											<h2>Funcionamento</h2>
+											<ul class="working-list">
+												<li>
+													<span>Quarta - Sexta</span> <span class="right-align">18:00 -
+														22:00h</span>
+												</li>
+												<li>
+													<span>Sábado</span> <span class="right-align">18:00 - 23:00h</span>
+												</li>
+												<li>
+													<span>Domingo</span> <span class="right-align">18:00 - 22:30h</span>
+												</li>
+											</ul>
+										</div>
+
+										<!-- Endereço e Telefone -->
+										<div class="footer-widget text-widget">
+											<h2>Nosso Endereço</h2>
+											<p>IDE Burguer <br>Rua Clóvis de Holanda Calado 379 <br> Bela Vista,
+												Cabedelo - PB <br> 58310-000</p>
+
+											<p>Tel.: 0 800 111 555 666 </p>
+										</div>
+
+									</div>
+								</div>
+
+								<!-- Bloco 2: Mapa -->
+								<div class="col-lg-6">
+									<div class="map-holder">
+										<div class="map"></div>
+										<div class="order-btn-box">
+											<a class="button-one" href="#">make your order now!</a>
+										</div>
+									</div>
+								</div>
+
+								<!-- Bloco 3 -->
+								<div class="col-lg-3">
+									<div class="widgets-area">
+
+										<!-- SubInscrição
 								  <div class="footer-widget subscribe-widget">
 									  <h2>subscribe now</h2>
 									  <p>Subscribe now for our new updates and get regular offers and stuff</p>
@@ -739,135 +987,180 @@
 									  </form>
 								  </div> 
 								  -->
-  
-										  <div class="footer-widget social-widget">
-											  <h2>Siga-nos</h2>
-											  <ul class="social-icons">
-  
-												  <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-												  </li>
-											  </ul>
-										  </div>
-									  </div>
-								  </div>
-							  </div>
-						  </div>
-					  </div>
-					  <div class="copyright-line">
-						  <p><span>IDEBurguer &copy;</span> 2024. by <span>MOCIAP</span></p>
-					  </div>
-				  </footer>
-				  <!-- End footer -->
-  
-			  </div>
-			  <!-- End Container -->
-  
-			  <script src="js/foody.min.js"></script>
-			  <script src="js/bootstrap.min.js"></script>
-			  <script src="js/DevSolutionSkill.min.js"></script>
-			  <script src="js/jquery.themepunch.tools.min.js"></script>
-			  <script src="js/jquery.themepunch.revolution.min.js"></script>
-			  <script src="js/script.js"></script>
-			  <script
-				  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqrIen8rWQrvJsu-7f4rOta0fmI5r2SI&amp;sensor=false&amp;language=en"></script>
-			  <script src="js/gmap3.min.js"></script>
-  
-			  <script>
-				  // Atualizar botões de pedir para abrir o modal
-				  document.querySelectorAll('.order').forEach(botao => {
-					  botao.setAttribute('data-toggle', 'modal');
-					  botao.setAttribute('data-target', '#burgerModal');
-				  });
-			 
-				  // Adicionar evento para atualizar o conteúdo do modal
-				  document.querySelectorAll('.order').forEach(botao => {
-					  botao.addEventListener('click', function (e) {
-						  e.preventDefault();
-			 
-						  const itemMenu = this.closest('.menu-post');
-						  const titulo = itemMenu.querySelector('h2 a').textContent;
-						  const descricao = itemMenu.querySelector('.post-content p').textContent;
-						  const preco = itemMenu.querySelector('.price').textContent;
-						  const imagem = itemMenu.querySelector('.image-holder img').src;
-			 
-						  // Atualizar o conteúdo do modal
-						  const modalTitle = document.querySelector('#burgerModalLabel');
-						  if (modalTitle) {
-							  modalTitle.textContent = titulo;
-						  } else {
-							  console.error('Elemento #burgerModalLabel não encontrado');
-						  }
-			 
-						  const modalImage = document.querySelector('#burgerModal .modal-body img');
-						  if (modalImage) {
-							  modalImage.src = imagem;
-						  } else {
-							  console.error('Imagem do modal não encontrada');
-						  }
-			 
-						  const modalDescription = document.querySelector('#burgerModal .modal-body p');
-						  if (modalDescription) {
-							  modalDescription.textContent = descricao;
-						  } else {
-							  console.error('Descrição do modal não encontrada');
-						  }
-			 
-						  const modalPrice = document.querySelector('#burgerModal .price');
-						  if (modalPrice) {
-							  modalPrice.textContent = preco;
-						  } else {
-							  console.error('Preço do modal não encontrado');
-						  }
-			 
-						  calcularTotal();
-					  });
-				  });
-			 
-				  // Cálculo dos adicionais
-				  document.querySelectorAll('.adicional-item').forEach(item => {
-					  item.addEventListener('change', calcularTotal);
-				  });
-			 
-				  function calcularTotal() {
-					  let precoBase = 26.00;
-					  let totalAdicionais = 0;
-			 
-					  document.querySelectorAll('.adicional-item:checked').forEach(item => {
-						  const price = parseFloat(item.dataset.price);
-						  totalAdicionais += price;
-					  });
-			 
-					  const adicionaisTotalElement = document.getElementById('adicionais-total');
-					  if (adicionaisTotalElement) {
-						  adicionaisTotalElement.textContent = `R$ ${totalAdicionais.toFixed(2)}`;
-					  } else {
-						  console.error('Elemento #adicionais-total não encontrado');
-					  }
-			 
-					  const totalPriceElement = document.getElementById('total-price');
-					  if (totalPriceElement) {
-						  const totalPrice = precoBase + totalAdicionais;
-						  totalPriceElement.textContent = `R$ ${totalPrice.toFixed(2)}`;
-					  } else {
-						  console.error('Elemento #total-price não encontrado');
-					  }
-				  }
-			 
-				  // Get the modal element
-				  const burgerModal = document.getElementById('burgerModal');
-			 
-				  // Add event listener for when the modal is shown
-				  burgerModal.addEventListener('show.bs.modal', function (event) {
-					  document.body.classList.add('modal-open-custom');
-				  });
-			 
-				  // Add event listener for when the modal is hidden
-				  burgerModal.addEventListener('hidden.bs.modal', function (event) {
-					  document.body.classList.remove('modal-open-custom');
-				  });
-			  </script>
-			 
-  
-  </body>
-  
-  </html>
+
+										<div class="footer-widget social-widget">
+											<h2>Siga-nos</h2>
+											<ul class="social-icons">
+
+												<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</footer>
+				<!-- End footer -->
+
+			</div>
+			<!-- End Container -->
+
+			<script src="js/foody.min.js"></script>
+			<script src="js/bootstrap.min.js"></script>
+			<script src="js/DevSolutionSkill.min.js"></script>
+			<script src="js/jquery.themepunch.tools.min.js"></script>
+			<script src="js/jquery.themepunch.revolution.min.js"></script>
+			<script src="js/script.js"></script>
+			<script
+				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqrIen8rWQrvJsu-7f4rOta0fmI5r2SI&amp;sensor=false&amp;language=en"></script>
+			<script src="js/gmap3.min.js"></script>
+
+			<script>
+				// Atualizar botões de pedir para abrir o modal
+				document.querySelectorAll('.order').forEach(botao => {
+					botao.setAttribute('data-toggle', 'modal');
+					botao.setAttribute('data-target', '#burgerModal');
+				});
+
+				// Adicionar evento para atualizar o conteúdo do modal
+				document.querySelectorAll('.order').forEach(botao => {
+					botao.addEventListener('click', function (e) {
+						e.preventDefault();
+
+						const itemMenu = this.closest('.menu-post');
+						const titulo = itemMenu.querySelector('h2 a').textContent;
+						const descricao = itemMenu.querySelector('.post-content p').textContent;
+						const preco = itemMenu.querySelector('.price').textContent;
+						const imagem = itemMenu.querySelector('.image-holder img').src;
+
+						// Atualizar o conteúdo do modal
+						const modalTitle = document.querySelector('#burgerModalLabel');
+						if (modalTitle) {
+							modalTitle.textContent = titulo;
+						} else {
+							console.error('Elemento #burgerModalLabel não encontrado');
+						}
+
+						const modalImage = document.querySelector('#burgerModal .modal-body img');
+						if (modalImage) {
+							modalImage.src = imagem;
+						} else {
+							console.error('Imagem do modal não encontrada');
+						}
+
+						const modalDescription = document.querySelector('#burgerModal .modal-body p');
+						if (modalDescription) {
+							modalDescription.textContent = descricao;
+						} else {
+							console.error('Descrição do modal não encontrada');
+						}
+
+						const modalPrice = document.querySelector('#burgerModal .price');
+						if (modalPrice) {
+							modalPrice.textContent = preco;
+						} else {
+							console.error('Preço do modal não encontrado');
+						}
+
+						calcularTotal();
+					});
+				});
+
+				// Cálculo dos adicionais
+				document.querySelectorAll('.adicional-item').forEach(item => {
+					item.addEventListener('change', calcularTotal);
+				});
+
+				function calcularTotal() {
+					let precoBase = parseFloat(document.querySelector('#burgerModal .price').textContent.replace('R$ ', '').replace(',', '.'));
+					let totalAdicionais = 0;
+
+					document.querySelectorAll('.adicional-item:checked').forEach(item => {
+						const price = parseFloat(item.dataset.price);
+						totalAdicionais += price;
+					});
+
+					const adicionaisTotalElement = document.getElementById('adicionais-total');
+					if (adicionaisTotalElement) {
+						adicionaisTotalElement.textContent = `R$ ${totalAdicionais.toFixed(2)}`;
+					} else {
+						console.error('Elemento #adicionais-total não encontrado');
+					}
+
+					const totalPriceElement = document.getElementById('total-price');
+					if (totalPriceElement) {
+						const totalPrice = precoBase + totalAdicionais;
+						totalPriceElement.textContent = `R$ ${totalPrice.toFixed(2)}`;
+					} else {
+						console.error('Elemento #total-price não encontrado');
+					}
+				}
+
+				// Get the modal element
+				const burgerModal = document.getElementById('burgerModal');
+
+				// Add event listener for when the modal is shown
+				burgerModal.addEventListener('show.bs.modal', function (event) {
+					document.body.classList.add('modal-open-custom');
+				});
+
+				// Add event listener for when the modal is hidden
+				burgerModal.addEventListener('hidden.bs.modal', function (event) {
+					document.body.classList.remove('modal-open-custom');
+				});
+
+				// Cart functionality
+				let cart = [];
+
+				const addToCartButton = document.querySelector('#burgerModal .modal-footer .btn-primary');
+				if (addToCartButton) {
+					addToCartButton.addEventListener('click', function () {
+						const itemName = document.querySelector('#burgerModalLabel').textContent;
+						const itemBasePrice = parseFloat(document.querySelector('#burgerModal .price').textContent.replace('R$ ', '').replace(',', '.'));
+						const itemAddons = [];
+						document.querySelectorAll('.adicional-item:checked').forEach(item => {
+							itemAddons.push({
+								name: item.nextElementSibling.textContent.split('(')[0].trim(),
+								price: parseFloat(item.dataset.price)
+							});
+						});
+						const itemNotes = document.querySelector('#burgerModal .observacao-section textarea').value;
+						const itemTotalPrice = parseFloat(document.querySelector('#total-price').textContent.replace('R$ ', '').replace(',', '.'));
+
+						const cartItem = {
+							name: itemName,
+							basePrice: itemBasePrice,
+							addons: itemAddons,
+							notes: itemNotes,
+							totalPrice: itemTotalPrice
+						};
+
+						cart.push(cartItem);
+						updateCartDisplay();
+						$('#burgerModal').modal('hide'); // Close the modal
+					});
+				} else {
+					console.error('Botão "Adicionar ao Carrinho" não encontrado');
+				}
+
+
+				function updateCartDisplay() {
+					const cartCount = cart.length;
+					const cartIcon = document.querySelector('.shopping-cart span');
+					if (cartIcon) {
+						cartIcon.textContent = cartCount;
+					} else {
+						console.error('Elemento do contador do carrinho não encontrado');
+					}
+				}
+
+
+
+			</script>
+
+</body>
+
+</html>

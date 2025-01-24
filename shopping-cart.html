@@ -1,260 +1,439 @@
 <!doctype html>
 
-<html lang="en" class="no-js">
+<html lang="pt-br" class="no-js">
+
 <head>
-	<title>Foody</title>
+	<title>IDEBurguer</title>
 
 	<meta charset="utf-8">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,400i,500,500i,600,700,800,900|PT+Serif:400,400i,700,700i" rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css?family=Gochi+Hand|Montserrat:300,400,400i,500,500i,600,700,800,900|PT+Serif:400,400i,700,700i"
+		rel="stylesheet">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+		integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 	<link rel="stylesheet" href="css/foody.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<style>
+		.page-title-container {
+			display: flex;
+			justify-content: center;
+			/* Centraliza o título horizontalmente */
+			align-items: center;
+			/* Alinha verticalmente */
+			margin-top: 20px;
+			margin-bottom: 30px;
+		}
+
+		.page-title {
+			font-size: 2.5em;
+			font-weight: bold;
+			color: #333;
+			margin: 0;
+			/* Remove a margem padrão do h1 */
+			flex-grow: 1;
+			/* Permite que o título cresça e empurre o botão para a direita */
+			text-align: center;
+			/* Centraliza o texto do título */
+		}
+
+		.close-button {
+			font-size: 1.5em;
+			cursor: pointer;
+			padding: 0.5rem;
+			margin-left: auto;
+			/* Empurra o botão para a direita */
+		}
+
+		.cart-items-section {
+			margin-top: 20px;
+		}
+
+		.cart-item {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 20px;
+			padding: 10px;
+			border: 1px solid #eee;
+			border-radius: 5px;
+		}
+
+		.cart-item-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 10px;
+		}
+
+		.cart-item-header h3 {
+			font-size: 1.5em;
+			font-weight: bold;
+		}
+
+		.cart-item-details {
+			display: flex;
+			gap: 10px;
+		}
+
+		.cart-item-image {
+			width: 80px;
+			height: 80px;
+			object-fit: cover;
+			border-radius: 5px;
+		}
+
+		.cart-item-info {
+			width: 100%;
+		}
+
+		.cart-item-name-price {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 5px;
+		}
+
+		.cart-item-name {
+			font-size: 1em;
+			line-height: 1.2;
+			max-width: 70%;
+		}
+
+		.cart-item-price {
+			font-weight: bold;
+			font-size: 1em;
+		}
+
+		.cart-item-edit-quantity {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.cart-item-edit {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			text-decoration: none;
+			color: #006BAE;
+			font-size: 0.8em;
+			font-weight: bold;
+			padding: 5px 10px;
+			border-radius: 5px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.cart-item-edit svg {
+			width: 16px;
+			height: 16px;
+		}
+
+		.cart-item-quantity-control {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			padding: 5px;
+		}
+
+		.quantity-button {
+			background: none;
+			border: none;
+			cursor: pointer;
+			padding: 0;
+		}
+
+		.quantity-button i {
+			font-size: 1em;
+			/* Adjust icon size as needed */
+		}
+
+		.store-quantity-value {
+			font-size: 1em;
+			margin: 0 5px;
+		}
+
+		.cart-item-details-extra {
+			margin-top: 10px;
+			font-size: 0.9em;
+			color: #555;
+		}
+
+		.cart-item-details-extra p {
+			margin: 0;
+		}
+
+		.cart-item-details-extra .collapsable-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			cursor: pointer;
+		}
+
+		.cart-item-details-extra .collapsable-content {
+			margin-top: 5px;
+			display: none;
+		}
+
+		.cart-item-details-extra .collapsable-content.active {
+			display: block;
+		}
+
+		.cart-item-details-extra .collapsable-header img {
+			width: 12px;
+			height: 12px;
+		}
+
+		.text-mcd-secondaryDarkGrey {
+			color: #777;
+		}
+
+		.btn-secondary {
+			background-color: #eee;
+			color: #333;
+			border: none;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 14px;
+			cursor: pointer;
+		}
+
+		.btn-primary:hover {
+			background-color: #eee;
+			/* Darker orange on hover */
+		}
+
+		.btn-primary {
+			background-color: #FF8C00;
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 14px;
+			cursor: pointer;
+		}
+
+		.btn-primary:hover {
+			background-color: #FF8C00;
+			/* Darker orange on hover */
+		}
+
+		.mb-4 {
+			margin-bottom: 1rem;
+		}
+
+		.md\:min-h-\[2\.5rem\] {
+			min-height: 2.5rem;
+		}
+
+		.md\:relative {
+			position: relative;
+		}
+
+		.md\:rounded-none {
+			border-radius: 0;
+		}
+
+		.md\:shadow-none {
+			box-shadow: none;
+		}
+
+		.md\:mx-auto {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.md\:h-fit {
+			height: fit-content;
+		}
+
+		.md\:justify-between {
+			justify-content: space-between;
+		}
+
+		.h-\[64px\] {
+			height: 64px;
+		}
+
+		.md\:w-full {
+			width: 100%;
+		}
+	</style>
 
 </head>
-<body>
 
+<body>
 	<!-- Container -->
 	<div id="container">
-		<!-- Header
-		    ================================================== -->
-		<header>
-			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-				<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt=""></a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav m-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="index.html">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="menu.html">Menu</a>
-							<ul class="dropdown">
-								<li><a href="menu.html">Menu Small</a></li>
-								<li><a href="menu-medium.html">Menu Medium</a></li>
-								<li><a href="menu-big.html">Menu Big</a></li>
-							</ul>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="about.html">About</a>
-						</li>
-					</ul>
-					<a href="index.html" class="middle-logo"><img src="images/logo.png" alt=""></a>
-					<ul class="navbar-nav m-auto">
-						<li class="nav-item">
-							<a class="nav-link" href="delivery.html">Delivery</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="blog.html">Blog</a>
-							<ul class="dropdown">
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="single-post.html">Single Post</a></li>
-								<li><a href="error-404.html">Error 404</a></li>
-								<li><a href="under-construction.html">Comming soon</a></li>
-								<li><a href="shopping-cart.html">Shopping Cart</a></li>
-								<li><a href="shopping-checkout.html">Checkout</a></li>
-							</ul>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="contact.html">Locations</a>
-						</li>
-					</ul>
+		<div class="page-title-container">
+			<h1 class="page-title">Meu Pedido</h1>
+			<span class="close-button" onclick="window.location.href='index.html'">×</span>
+		</div>
+		<section class="cart-items-section">
+			<div class="container">
+				<div class="cart-item-header" style="margin-bottom: 20px;">
+					<h3>Produtos</h3>
 				</div>
-				<a href="#" class="shopping-cart"><i class="fa fa-shopping-bag"></i><span>2</span></a>
-
-			</nav>
-		</header>
-		<!-- End Header -->
-
-		<!-- page-banner-section 
-			================================================== -->
-		<section class="page-banner-section delivery">
-			<div class="container">
-				<p>You are here: <a href="index.html">Home</a> / <a href="shopping-cart.html">Shopping Cart</a></p>
-			</div>
-		</section>
-		<!-- End page-banner section -->
-
-		<!-- shopping-cart-section 
-			================================================== -->
-		<section class="shopping-cart-section">
-			<div class="container">
-				<div class="checking-form">
-					<div class="table-responsive">
-						<table class="table">
-							<thead>
-								<tr>
-									<th colspan="3">Product</th>
-									<th>Price</th>
-									<th>Quantity</th>
-									<th>Total</th>
-								</tr>
-							</thead>
-							<tr>
-								<td><a href="#" class="remove-item"><i class="fa fa-trash-o"></i></a></td>
-								<td><img src="upload/menu/1.jpg" alt=""></td>
-								<td>
-									<h2><a href="#">Vivamus vestibulum nulla</a></h2>
-								</td>
-								<td>$<span class="price stat-price">15.99</span></td>
-								<td>
-									<div class="quantity-add">
-										<button class="decrease">-</button>
-										<input type="text" class="quantity-number" value="1"/>
-										<button class="increase">+</button>
-									</div>
-								</td>
-								<td>$<span class="price tot-price">15.99</span></td>
-							</tr>
-							<tr>
-								<td><a href="#" class="remove-item"><i class="fa fa-trash-o"></i></a></td>
-								<td><img src="upload/menu/2.jpg" alt=""></td>
-								<td>
-									<h2><a href="#">Quisque volutpat mat</a></h2>
-								</td>
-								<td>$<span class="price stat-price">20.99</span></td>
-								<td>
-									<div class="quantity-add">
-										<button class="decrease">-</button>
-										<input type="text" class="quantity-number" value="1"/>
-										<button class="increase">+</button>
-									</div>
-								</td>
-								<td>$<span class="price tot-price">20.99</span></td>
-							</tr>
-						</table>
-					</div>
-					<div class="checkout-buttons">
-						<div class="left-buttons">
-							<input type="text" name="coupon-code" placeholder="enter coupon code"/>
-							<a href="#" class="button-one grey">Apply Coupon</a>
-						</div>
-						<div class="right-buttons">
-							<a href="#" class="button-one grey">Update Cart</a>
-							<a href="#" class="button-one grey">Proceed to Checkout</a>
-						</div>
-					</div>
-					<div class="total-box">
-						<div class="row">
-							<div class="col-md-6 col-lg-4">
-								<h2>Calculate Shipping</h2>
-								<input type="text" name="country" placeholder="country"/>
-								<input type="text" name="city" placeholder="city"/>
-								<input type="text" name="postcode" placeholder="postcode / zip"/>
-								<a href="#" class="button-one grey">Update Totals</a>
+				<div class="cart-item">
+					<div class="cart-item-details">
+						<img src="upload/menu/1.jpg" alt="Produto 1" class="cart-item-image">
+						<div class="cart-item-info">
+							<div class="cart-item-name-price">
+								<p class="cart-item-name">Vivamus vestibulum nulla</p>
+								<p class="cart-item-price">R$ 15.99</p>
 							</div>
-							<div class="col-md-6 col-lg-4 offset-lg-4">
-								<div class="inner-total">
-									<h2>Cart Total</h2>
-									<div class="table-responsive">
-										<table class="table">
-											<tr>
-												<td>Cart Subtotal</td>
-												<td><span class="total-price">$199.98</span></td>
-											</tr>
-											<tr>
-												<td>Shipping and Handling</td>
-												<td><span class="shipping-price">Free Shipping</span></td>
-											</tr>
-											<tr>
-												<td>Order Total</td>
-												<td><span class="total-price-withshipping">$199.98</span></td>
-											</tr>
-										</table>
-									</div>
+							<div class="cart-item-edit-quantity">
+								<a href="#" class="cart-item-edit">
+									<span class="block">Editar</span>
+									<svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M22.5918 12.2051L24.3595 10.4373C25.3359 9.461 26.9188 9.461 27.8951 10.4373L38.4229 20.9652L38.4251 20.963L40.5464 23.0843C41.3275 23.8654 41.3275 25.1317 40.5464 25.9127L40.2743 26.1849C40.2479 26.2139 40.2207 26.2424 40.1926 26.2704L38.4249 28.0382L38.4229 28.0362L27.8953 38.5639C26.919 39.5402 25.3361 39.5402 24.3598 38.5639L22.592 36.7961L32.3876 27.0005H8.5C7.11929 27.0005 6 25.8812 6 24.5005V22.0005H32.3872L22.5918 12.2051Z"
+											fill="#006BAE"></path>
+									</svg>
+								</a>
+								<div class="cart-item-quantity-control">
+									<button class="quantity-button"><i class="fas fa-trash-alt"></i></button>
+									<div class="store-quantity-value">1</div>
+									<button class="quantity-button"><i class="fas fa-plus"></i></button>
 								</div>
 							</div>
+						</div>
+					</div>
+					<div class="cart-item-details-extra">
+						<div class="collapsable-header">
+							<p>Vivamus vestibulum nulla - Detalhes adicionais</p>
+							<i class="fas fa-chevron-down"></i>
+						</div>
+						<div class="collapsable-content">
+							<p>Detalhes adicionais do produto.</p>
+						</div>
+					</div>
+				</div>
+				<div class="cart-item">
+					<div class="cart-item-details">
+						<img src="upload/menu/2.jpg" alt="Produto 2" class="cart-item-image">
+						<div class="cart-item-info">
+							<div class="cart-item-name-price">
+								<p class="cart-item-name">Quisque volutpat mat</p>
+								<p class="cart-item-price">R$ 20.99</p>
+							</div>
+							<div class="cart-item-edit-quantity">
+								<a href="#" class="cart-item-edit">
+									<span class="block">Editar</span>
+									<svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M22.5918 12.2051L24.3595 10.4373C25.3359 9.461 26.9188 9.461 27.8951 10.4373L38.4229 20.9652L38.4251 20.963L40.5464 23.0843C41.3275 23.8654 41.3275 25.1317 40.5464 25.9127L40.2743 26.1849C40.2479 26.2139 40.2207 26.2424 40.1926 26.2704L38.4249 28.0382L38.4229 28.0362L27.8953 38.5639C26.919 39.5402 25.3361 39.5402 24.3598 38.5639L22.592 36.7961L32.3876 27.0005H8.5C7.11929 27.0005 6 25.8812 6 24.5005V22.0005H32.3872L22.5918 12.2051Z"
+											fill="#006BAE"></path>
+									</svg>
+								</a>
+								<div class="cart-item-quantity-control">
+									<button class="quantity-button"><i class="fas fa-trash"></i></button>
+									<div class="store-quantity-value">1</div>
+									<button class="quantity-button"><i class="fas fa-plus"></i></button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="cart-item-details-extra">
+						<div class="collapsable-header">
+							<p>Quisque volutpat mat - Detalhes adicionais</p>
+							<i class="fas fa-chevron-down"></i>
+						</div>
+						<div class="collapsable-content">
+							<p>Detalhes adicionais do produto.</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
-		<!-- End shopping-cart section -->
-
-		<!-- footer 
-			================================================== -->
-		<footer>
-			<div class="upper-footer">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-3">
-							<div class="widgets-area">
-								<div class="footer-widget text-widget">
-									<h2>Opening hours</h2>
-									<ul class="working-list">
-										<li>
-											<span>Monda - Friday</span> <span class="right-align">08:00 - 23:00h</span>
-										</li>
-										<li>
-											<span>Saturday</span> <span class="right-align">08:00 - 23:00h</span>
-										</li>
-										<li>
-											<span>Sunday</span> <span class="right-align">08:00 - 23:00h</span>
-										</li>
-									</ul>
-								</div>
-								<div class="footer-widget text-widget">
-									<h2>our address</h2>
-									<p>Pizzeria Head Office <br>54866 2nd Road NY 48766<br> Ney York, U.S.A</p>
-
-									<p>Make Reservations: 0 800 111 555 666 <br> Email: info@yourdomain.com</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="map-holder">
-								<div class="map"></div>
-								<div class="order-btn-box">
-									<a class="button-one" href="#">make your order now!</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="widgets-area">
-								<div class="footer-widget subscribe-widget">
-									<h2>subscribe now</h2>
-									<p>Subscribe now for our new updates and get regular offers and stuff</p>
-									<form id="subscribe-form">
-										<input type="text" name="email" id="email" placeholder="Enter Your Email"/>
-										<input type="submit" id="submit_subscribe" value="Subscribe">
-									</form>
-								</div>
-								<div class="footer-widget social-widget">
-									<h2>Social Networks</h2>
-									<ul class="social-icons">
-										<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
-										<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="copyright-line">
-				<p><span>Foody &copy;</span> 2019 for Envato Pty Ltd. HTML template by <span>Nunforest</span></p>
-			</div>
-		</footer>
-		<!-- End footer -->
-
 	</div>
-	<!-- End Container -->
-
+	<section data-test="mobile-cart-resume"
+		class="fixed bottom-0 left-0 z-10 w-full rounded-t-3xl bg-white shadow-elevation-up md:relative md:rounded-none md:shadow-none">
+		<div class="relative p-4" data-test="mobile-cart-resume--collapsable">
+			<div>
+				<div style="display: flex; justify-content: space-between; align-items: center; font-size: 1.2em;">
+					<p style="font-weight: bold;">TOTAL</p>
+					<span class="block" data-cart-total style="color: #FF6B00; font-weight: bold;">R$ 0.00</span>
+				</div>
+				<div class="flex h-[64px] w-full flex-row items-center md:mx-auto md:h-fit md:justify-between">
+					<button class="btn-secondary h-full w-1/2 rounded-none md:h-fit md:w-full">Continuar comprando</button>
+					<button class="btn-primary h-full w-1/2 rounded-none md:h-fit md:w-full" data-test="btn-cart-next">Enviar Pedido</button>
+				</div>
+			</div>
+		</div>
+	</section>
 	<script src="js/foody.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/DevSolutionSkill.min.js"></script>
 	<script src="js/jquery.themepunch.tools.min.js"></script>
 	<script src="js/jquery.themepunch.revolution.min.js"></script>
 	<script src="js/script.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqrIen8rWQrvJsu-7f4rOta0fmI5r2SI&amp;sensor=false&amp;language=en"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqrIen8rWQrvJsu-7f4rOta0fmI5r2SI&sensor=false&language=en"></script>
 	<script src="js/gmap3.min.js"></script>
 	
+	<script>
+		const totalContainer = document.querySelector('[data-test="mcd-collapsable__element__visible"]');
+		const totalInnerDiv = totalContainer.querySelector('div');
+		const totalText = totalInnerDiv.querySelector('p');
+		const totalValue = totalInnerDiv.querySelector('span');
+		const cartTotalDisplay = document.querySelector('[data-cart-total]');
+
+
+		function calculateCartTotal() {
+			let total = 0;
+			document.querySelectorAll('.cart-item').forEach(item => {
+				const priceText = item.querySelector('.cart-item-price').textContent.trim();
+				const quantity = parseInt(item.querySelector('.store-quantity-value').textContent);
+				const price = parseFloat(priceText.replace('R$ ', '').replace(',', '.'));
+				total += price * quantity;
+			});
+			cartTotalDisplay.textContent = `R$ ${total.toFixed(2)}`;
+		}
+
+		calculateCartTotal();
+
+		document.querySelectorAll('.collapsable-header').forEach(header => {
+			header.addEventListener('click', function () {
+				const content = this.nextElementSibling;
+				content.classList.toggle('active');
+			});
+		});
+		document.querySelector('[data-test="mcd-collapsable__element__visible"]').addEventListener('click', function () {
+			const content = this.nextElementSibling;
+			content.querySelector('[data-test="mcd-collapsable__element__content"] > div').style.display = content.querySelector('[data-test="mcd-collapsable__element__content"] > div').style.display === 'none' ? 'block' : 'none';
+		});
+
+		document.querySelectorAll('.quantity-button').forEach(button => {
+			button.addEventListener('click', function() {
+				const item = this.closest('.cart-item');
+				const quantityDisplay = item.querySelector('.store-quantity-value');
+				let quantity = parseInt(quantityDisplay.textContent);
+
+				if(this.querySelector('i').classList.contains('fa-plus')) {
+					quantity++;
+				} else if (this.querySelector('i').classList.contains('fa-trash-alt') && quantity > 0) {
+					quantity = 0;
+				}
+				
+				quantityDisplay.textContent = quantity;
+				calculateCartTotal();
+			});
+		});
+	</script>
+
 </body>
+
 </html>
