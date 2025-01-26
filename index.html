@@ -7,6 +7,9 @@
 
 	<meta charset="utf-8">
 
+	<!-- Add favicon here -->
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link
@@ -189,7 +192,7 @@
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 				<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt=""></a>
 				<span class="navbar-text">CARDÁPIO</span>
-				<a href="shopping-cart.html" class="shopping-cart"><i class="fa fa-shopping-bag"></i><span>1</span></a>
+				<a href="shopping-cart.html" class="shopping-cart"><i class="fa fa-shopping-bag"></i><span>0</span></a>
 			</nav>
 		</header>
 		<!-- End Header -->
@@ -538,7 +541,6 @@
 					</div>
 				</div>
 
-
 				<!-- Linha Kids -->
 				<div class="menu-box">
 					<h1 class="menu-title">~ LINHA KIDS 90G ~</h1>
@@ -607,7 +609,6 @@
 						</div>
 					</div>
 				</div>
-
 
 				<!-- Cachorro Quente -->
 				<div class="menu-box">
@@ -803,7 +804,6 @@
 					</div>
 				</div>
 
-
 				<!-- End menu section -->
 
 				<!-- Modal do Produto -->
@@ -816,7 +816,7 @@
 									<h4 class="modal-title" id="burgerModalLabel">Confirme o Item</h4>
 									<button type="button" class="close ml-auto" data-dismiss="modal"
 										aria-label="Fechar">
-										<span aria-hidden="true">&times;</span>
+										<span>&times;</span>
 									</button>
 								</div>
 							</div>
@@ -917,8 +917,10 @@
 								</div>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-primary btn-lg btn-block">Adicionar ao
-									Carrinho</button>
+								<button type="button" class="btn btn-primary btn-lg btn-block"
+									aria-label="Adicionar ao carrinho" role="button">
+									Adicionar ao Carrinho
+								</button>
 							</div>
 						</div>
 					</div>
@@ -992,7 +994,7 @@
 											<h2>Siga-nos</h2>
 											<ul class="social-icons">
 
-												<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+												<li><a href="#"><i class="fa fa-instagram"></i></a>
 												</li>
 											</ul>
 										</div>
@@ -1019,6 +1021,16 @@
 			<script src="js/gmap3.min.js"></script>
 
 			<script>
+
+				// Log do localStorage ao carregar a página
+				document.addEventListener('DOMContentLoaded', function() {
+    localStorage.clear(); // Limpa todo o localStorage
+    // ou
+    localStorage.removeItem('cartItems'); // Remove apenas os itens do carrinho
+    console.log('Conteúdo do localStorage ao iniciar:', JSON.parse(localStorage.getItem('cartItems')));
+});
+
+
 				// Atualizar botões de pedir para abrir o modal
 				document.querySelectorAll('.order').forEach(botao => {
 					botao.setAttribute('data-toggle', 'modal');
@@ -1035,6 +1047,9 @@
 						const descricao = itemMenu.querySelector('.post-content p').textContent;
 						const preco = itemMenu.querySelector('.price').textContent;
 						const imagem = itemMenu.querySelector('.image-holder img').src;
+						const menuSection = itemMenu.closest('.menu-box').querySelector('.menu-title').textContent;
+						const adicionaisSection = document.querySelector('.adicionais-section');
+						const resumoSection = document.querySelector('.resumo-section');
 
 						// Atualizar o conteúdo do modal
 						const modalTitle = document.querySelector('#burgerModalLabel');
@@ -1063,6 +1078,35 @@
 							modalPrice.textContent = preco;
 						} else {
 							console.error('Preço do modal não encontrado');
+						}
+
+						// Ocultar seção de adicionais para bebidas
+						if (menuSection.includes('BEBIDAS')) {
+							adicionaisSection.style.display = 'none';
+							// Ajustar o resumo para mostrar apenas o preço base
+							document.querySelector('.resumo-items').innerHTML = `
+        						<div class="d-flex justify-content-between font-weight-bold">
+            					<span>Total:</span>
+            					<span id="total-price">${preco}</span>
+        						</div>
+    							`;
+						} else {
+							adicionaisSection.style.display = 'block';
+							// Restaurar o resumo completo para outros itens
+							document.querySelector('.resumo-items').innerHTML = `
+        <div class="d-flex justify-content-between">
+            <span>Item Base:</span>
+            <span>${preco}</span>
+        </div>
+        <div class="d-flex justify-content-between">
+            <span>Adicionais:</span>
+            <span id="adicionais-total">R$ 0,00</span>
+        </div>
+        <div class="d-flex justify-content-between font-weight-bold">
+            <span>Total:</span>
+            <span id="total-price">${preco}</span>
+        </div>
+    `;
 						}
 
 						calcularTotal();
@@ -1116,48 +1160,76 @@
 				let cart = [];
 
 				const addToCartButton = document.querySelector('#burgerModal .modal-footer .btn-primary');
+
 				if (addToCartButton) {
 					addToCartButton.addEventListener('click', function () {
 						const itemName = document.querySelector('#burgerModalLabel').textContent;
 						const itemBasePrice = parseFloat(document.querySelector('#burgerModal .price').textContent.replace('R$ ', '').replace(',', '.'));
 						const itemAddons = [];
+						const itemNotes = document.querySelector('#burgerModal .observacao-section textarea').value;
+						const itemTotalPrice = parseFloat(document.querySelector('#total-price').textContent.replace('R$ ', '').replace(',', '.'));
+						const itemImage = document.querySelector('#burgerModal .modal-body img').src;
+
+						// Create cart item object
+						const cartItem = {
+							name: itemName,
+							basePrice: itemBasePrice,
+							addons: itemAddons,
+							notes: itemNotes,
+							totalPrice: itemTotalPrice,
+							image: itemImage
+						};
+
+						// Add selected addons
 						document.querySelectorAll('.adicional-item:checked').forEach(item => {
 							itemAddons.push({
 								name: item.nextElementSibling.textContent.split('(')[0].trim(),
 								price: parseFloat(item.dataset.price)
 							});
 						});
-						const itemNotes = document.querySelector('#burgerModal .observacao-section textarea').value;
-						const itemTotalPrice = parseFloat(document.querySelector('#total-price').textContent.replace('R$ ', '').replace(',', '.'));
 
-						const cartItem = {
-							name: itemName,
-							basePrice: itemBasePrice,
-							addons: itemAddons,
-							notes: itemNotes,
-							totalPrice: itemTotalPrice
-						};
+						// Get existing cart items or initialize empty array
+						let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+						// Add new item and save to localStorage
+						cartItems.push(cartItem);
+						localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+						console.log('Adicionando item ao Carrinho:', cartItem);
+						console.log('Current cart items:', cartItems);
+						console.log('Cart saved to localStorage:', JSON.parse(localStorage.getItem('cartItems')));
 
 						cart.push(cartItem);
 						updateCartDisplay();
-						$('#burgerModal').modal('hide'); // Close the modal
+						
+						document.querySelector('#burgerModal').classList.remove('show');
+document.querySelector('#burgerModal').style.display = 'none';
+document.querySelector('.modal-backdrop').remove();
+document.body.classList.remove('modal-open');
+document.body.classList.remove('modal-open-custom');
+
 					});
 				} else {
 					console.error('Botão "Adicionar ao Carrinho" não encontrado');
 				}
 
 
+
+
 				function updateCartDisplay() {
 					const cartCount = cart.length;
 					const cartIcon = document.querySelector('.shopping-cart span');
 					if (cartIcon) {
-						cartIcon.textContent = cartCount;
-					} else {
-						console.error('Elemento do contador do carrinho não encontrado');
+						if (cartCount > 0) {
+							cartIcon.style.display = 'block';
+							cartIcon.textContent = cartCount;
+						} else {
+							cartIcon.style.display = 'none';
+						}
 					}
+					// Salvar carrinho no localStorage
+					localStorage.setItem('cartItems', JSON.stringify(cart));
 				}
-
-
 
 			</script>
 

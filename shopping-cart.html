@@ -284,80 +284,10 @@
 				<div class="cart-item-header" style="margin-bottom: 20px;">
 					<h3>Produtos</h3>
 				</div>
-				<div class="cart-item">
-					<div class="cart-item-details">
-						<img src="upload/menu/1.jpg" alt="Produto 1" class="cart-item-image">
-						<div class="cart-item-info">
-							<div class="cart-item-name-price">
-								<p class="cart-item-name">Vivamus vestibulum nulla</p>
-								<p class="cart-item-price">R$ 15.99</p>
-							</div>
-							<div class="cart-item-edit-quantity">
-								<a href="#" class="cart-item-edit">
-									<span class="block">Editar</span>
-									<svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-										xmlns="http://www.w3.org/2000/svg">
-										<path
-											d="M22.5918 12.2051L24.3595 10.4373C25.3359 9.461 26.9188 9.461 27.8951 10.4373L38.4229 20.9652L38.4251 20.963L40.5464 23.0843C41.3275 23.8654 41.3275 25.1317 40.5464 25.9127L40.2743 26.1849C40.2479 26.2139 40.2207 26.2424 40.1926 26.2704L38.4249 28.0382L38.4229 28.0362L27.8953 38.5639C26.919 39.5402 25.3361 39.5402 24.3598 38.5639L22.592 36.7961L32.3876 27.0005H8.5C7.11929 27.0005 6 25.8812 6 24.5005V22.0005H32.3872L22.5918 12.2051Z"
-											fill="#006BAE"></path>
-									</svg>
-								</a>
-								<div class="cart-item-quantity-control">
-									<button class="quantity-button"><i class="fas fa-trash-alt"></i></button>
-									<div class="store-quantity-value">1</div>
-									<button class="quantity-button"><i class="fas fa-plus"></i></button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="cart-item-details-extra">
-						<div class="collapsable-header">
-							<p>Vivamus vestibulum nulla - Detalhes adicionais</p>
-							<i class="fas fa-chevron-down"></i>
-						</div>
-						<div class="collapsable-content">
-							<p>Detalhes adicionais do produto.</p>
-						</div>
-					</div>
-				</div>
-				<div class="cart-item">
-					<div class="cart-item-details">
-						<img src="upload/menu/2.jpg" alt="Produto 2" class="cart-item-image">
-						<div class="cart-item-info">
-							<div class="cart-item-name-price">
-								<p class="cart-item-name">Quisque volutpat mat</p>
-								<p class="cart-item-price">R$ 20.99</p>
-							</div>
-							<div class="cart-item-edit-quantity">
-								<a href="#" class="cart-item-edit">
-									<span class="block">Editar</span>
-									<svg width="48" height="48" viewBox="0 0 48 48" fill="none"
-										xmlns="http://www.w3.org/2000/svg">
-										<path
-											d="M22.5918 12.2051L24.3595 10.4373C25.3359 9.461 26.9188 9.461 27.8951 10.4373L38.4229 20.9652L38.4251 20.963L40.5464 23.0843C41.3275 23.8654 41.3275 25.1317 40.5464 25.9127L40.2743 26.1849C40.2479 26.2139 40.2207 26.2424 40.1926 26.2704L38.4249 28.0382L38.4229 28.0362L27.8953 38.5639C26.919 39.5402 25.3361 39.5402 24.3598 38.5639L22.592 36.7961L32.3876 27.0005H8.5C7.11929 27.0005 6 25.8812 6 24.5005V22.0005H32.3872L22.5918 12.2051Z"
-											fill="#006BAE"></path>
-									</svg>
-								</a>
-								<div class="cart-item-quantity-control">
-									<button class="quantity-button"><i class="fas fa-trash"></i></button>
-									<div class="store-quantity-value">1</div>
-									<button class="quantity-button"><i class="fas fa-plus"></i></button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="cart-item-details-extra">
-						<div class="collapsable-header">
-							<p>Quisque volutpat mat - Detalhes adicionais</p>
-							<i class="fas fa-chevron-down"></i>
-						</div>
-						<div class="collapsable-content">
-							<p>Detalhes adicionais do produto.</p>
-						</div>
-					</div>
-				</div>
+				<!-- Os itens do carrinho serão inseridos aqui dinamicamente via JavaScript -->
 			</div>
 		</section>
+		
 	</div>
 	<section data-test="mobile-cart-resume"
 		class="fixed bottom-0 left-0 z-10 w-full rounded-t-3xl bg-white shadow-elevation-up md:relative md:rounded-none md:shadow-none">
@@ -368,8 +298,10 @@
 					<span class="block" data-cart-total style="color: #FF6B00; font-weight: bold;">R$ 0.00</span>
 				</div>
 				<div class="flex h-[64px] w-full flex-row items-center md:mx-auto md:h-fit md:justify-between">
-					<button class="btn-secondary h-full w-1/2 rounded-none md:h-fit md:w-full">Continuar comprando</button>
-					<button class="btn-primary h-full w-1/2 rounded-none md:h-fit md:w-full" data-test="btn-cart-next">Enviar Pedido</button>
+					<button class="btn-secondary h-full w-1/2 rounded-none md:h-fit md:w-full">Continuar
+						comprando</button>
+					<button class="btn-primary h-full w-1/2 rounded-none md:h-fit md:w-full"
+						data-test="btn-cart-next">Enviar Pedido</button>
 				</div>
 			</div>
 		</div>
@@ -383,13 +315,113 @@
 	<script
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiqrIen8rWQrvJsu-7f4rOta0fmI5r2SI&sensor=false&language=en"></script>
 	<script src="js/gmap3.min.js"></script>
-	
+
 	<script>
-		const totalContainer = document.querySelector('[data-test="mcd-collapsable__element__visible"]');
-		const totalInnerDiv = totalContainer.querySelector('div');
-		const totalText = totalInnerDiv.querySelector('p');
-		const totalValue = totalInnerDiv.querySelector('span');
-		const cartTotalDisplay = document.querySelector('[data-cart-total]');
+
+  document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM carregado');
+      const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      console.log('Dados do carrinho:', cartItems);
+            
+      // Aguardar um momento para garantir que o DOM está pronto
+      setTimeout(() => {
+          const cartSection = document.querySelector('.cart-items-section .container');
+          if (cartSection) {
+              console.log('Container encontrado:', cartSection);
+              // Aqui vem o código de renderização dos itens
+              let cartHTML = `
+                  <div class="cart-item-header" style="margin-bottom: 20px;">
+                      <h3>Produtos</h3>
+                  </div>
+              `;
+
+              cartItems.forEach(item => {
+                  console.log('4. Processando item:', item);
+                  console.log('5. Nome do item:', item.name);
+                  console.log('6. Preço base:', item.basePrice);
+                  console.log('7. Adicionais:', item.addons);
+
+                  cartHTML += `
+                      <div class="cart-item">
+                          <div class="cart-item-details">
+                              <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                              <div class="cart-item-info">
+                                  <div class="cart-item-name-price">
+                                      <p class="cart-item-name">${item.name}</p>
+                                      <p class="cart-item-price">R$ ${item.basePrice.toFixed(2)}</p>
+                                  </div>
+                                  <div class="cart-item-edit-quantity">
+                                      <a href="#" class="cart-item-edit">
+                                          <span class="block">Editar</span>
+                                          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                              <path d="M22.5918 12.2051L24.3595 10.4373C25.3359 9.461 26.9188 9.461 27.8951 10.4373L38.4229 20.9652L38.4251 20.963L40.5464 23.0843C41.3275 23.8654 41.3275 25.1317 40.5464 25.9127L40.2743 26.1849C40.2479 26.2139 40.2207 26.2424 40.1926 26.2704L38.4249 28.0382L38.4229 28.0362L27.8953 38.5639C26.919 39.5402 25.3361 39.5402 24.3598 38.5639L22.592 36.7961L32.3876 27.0005H8.5C7.11929 27.0005 6 25.8812 6 24.5005V22.0005H32.3872L22.5918 12.2051Z" fill="#006BAE"></path>
+                                          </svg>
+                                      </a>
+                                      <div class="cart-item-quantity-control">
+                                          <button class="quantity-button"><i class="fas fa-trash-alt"></i></button>
+                                          <div class="store-quantity-value">1</div>
+                                          <button class="quantity-button"><i class="fas fa-plus"></i></button>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          ${renderAdicionais(item.addons)}
+                          ${renderObservacoes(item.notes)}
+                      </div>
+                  `;
+
+                  console.log('8. HTML gerado para o item:', cartHTML);
+              });
+
+              cartSection.innerHTML = cartHTML;
+              console.log('9. HTML final inserido:', cartSection.innerHTML);
+                    
+              updateCartTotal(cartItems);
+              console.log('10. Total do carrinho atualizado:', document.querySelector('[data-cart-total]').textContent);
+          } else {
+              console.log('Container não encontrado. Verificar seletores.');
+          }
+      }, 100);
+  });
+
+  const totalContainer = document.querySelector('[data-test="mcd-collapsable__element__visible"]');
+  const totalInnerDiv = totalContainer.querySelector('div');
+  const totalText = totalInnerDiv.querySelector('p');
+  const totalValue = totalInnerDiv.querySelector('span');
+  const cartTotalDisplay = document.querySelector('[data-cart-total]');		function renderAdicionais(addons) {
+			if (!addons || addons.length === 0) return '';
+			return `
+        <div class="cart-item-details-extra">
+            <div class="collapsable-header">
+                <p>Adicionais</p>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="collapsable-content">
+                ${addons.map(addon => `<p>${addon.name} - R$ ${addon.price.toFixed(2)}</p>`).join('')}
+            </div>
+        </div>
+    `;
+		}
+
+		function renderObservacoes(notes) {
+			if (!notes) return '';
+			return `
+        <div class="cart-item-details-extra">
+            <div class="collapsable-header">
+                <p>Observações</p>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="collapsable-content">
+                <p>${notes}</p>
+            </div>
+        </div>
+    `;
+		}
+
+		function updateCartTotal(items) {
+			const total = items.reduce((sum, item) => sum + item.totalPrice, 0);
+			document.querySelector('[data-cart-total]').textContent = `R$ ${total.toFixed(2)}`;
+		}
 
 
 		function calculateCartTotal() {
@@ -417,21 +449,39 @@
 		});
 
 		document.querySelectorAll('.quantity-button').forEach(button => {
-			button.addEventListener('click', function() {
+			button.addEventListener('click', function () {
 				const item = this.closest('.cart-item');
 				const quantityDisplay = item.querySelector('.store-quantity-value');
 				let quantity = parseInt(quantityDisplay.textContent);
 
-				if(this.querySelector('i').classList.contains('fa-plus')) {
+				if (this.querySelector('i').classList.contains('fa-plus')) {
 					quantity++;
 				} else if (this.querySelector('i').classList.contains('fa-trash-alt') && quantity > 0) {
 					quantity = 0;
 				}
-				
+
 				quantityDisplay.textContent = quantity;
 				calculateCartTotal();
 			});
 		});
+
+		document.addEventListener('DOMContentLoaded', function() {
+    console.log('1. DOM Carregado');
+    
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    console.log('2. Dados do carrinho:', cartItems);
+    
+    // Verificar se o elemento existe
+    const cartSectionExists = document.querySelector('.cart-items-section');
+    console.log('3. Seção do carrinho existe?', cartSectionExists);
+    
+    const containerExists = document.querySelector('.container');
+    console.log('4. Container existe?', containerExists);
+    
+    const cartSection = document.querySelector('.cart-items-section .container');
+    console.log('5. Elemento completo existe?', cartSection);
+});
+
 	</script>
 
 </body>
